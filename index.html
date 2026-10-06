@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر التقنية المتكامل</title>
+    <!-- خط تجوال العربي -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- مكتبة Tailwind CSS للتصميم السريع -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a', // أزرق داكن مشابه للمتجر الأصلي
+                        secondary: '#f59e0b', // برتقالي للعروض
+                        accent: '#16a34a', // أخضر للأسعار
+                    },
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+
+    <!-- شريط الإعلانات العلوي -->
+    <div class="bg-primary text-white text-center py-2 text-sm font-medium">
+        🚚 شحن مجاني للطلبات فوق 200 ريال | ضمان استرجاع خلال 7 أيام
+    </div>
+
+    <!-- الهيدر الرئيسي -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between gap-4">
+            <!-- الشعار -->
+            <a href="#" class="text-2xl font-extrabold text-primary flex items-center gap-2">
+                <i class="fas fa-bolt text-secondary"></i> متجرك
+            </a>
+            
+            <!-- شريط البحث (يختفي في الشاشات الصغيرة) -->
+            <div class="hidden md:flex flex-1 max-w-xl mx-4 relative">
+                <input type="text" id="searchInput" placeholder="ابحث عن منتج، ماركة، أو تصنيف..." class="w-full border border-gray-300 rounded-r-lg px-4 py-2 focus:outline-none focus:border-primary transition">
+                <button class="bg-primary text-white px-6 rounded-l-lg hover:bg-blue-800 transition"><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- أيقونات المستخدم -->
+            <div class="flex items-center gap-6 text-gray-600">
+                <a href="#" class="flex flex-col items-center hover:text-primary transition group">
+                    <i class="far fa-heart text-xl group-hover:text-red-500 transition"></i>
+                    <span class="text-xs mt-1">المفضلة</span>
+                </a>
+                <a href="#" class="flex flex-col items-center hover:text-primary transition group relative">
+                    <i class="fas fa-shopping-cart text-xl group-hover:text-primary transition"></i>
+                    <span id="cartCount" class="absolute -top-2 -right-2 bg-secondary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    <span class="text-xs mt-1">السلة</span>
+                </a>
+                <a href="#" class="flex flex-col items-center hover:text-primary transition group">
+                    <i class="far fa-user text-xl"></i>
+                    <span class="text-xs mt-1">حسابي</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- شريط التصنيفات -->
+        <nav class="border-t border-gray-100 bg-white hidden md:block">
+            <div class="container mx-auto px-4">
+                <ul class="flex gap-8 text-sm font-bold text-gray-700 py-3 overflow-x-auto">
+                    <li class="hover:text-primary cursor-pointer text-primary">الرئيسية</li>
+                    <li class="hover:text-primary cursor-pointer">الأجهزة الذكية</li>
+                    <li class="hover:text-primary cursor-pointer">إكسسوارات الحماية</li>
+                    <li class="hover:text-primary cursor-pointer">الكفرات والملحقات</li>
+                    <li class="hover:text-primary cursor-pointer">الصوتيات والساعات</li>
+                    <li class="hover:text-primary cursor-pointer text-red-600 flex items-center gap-1">عروض تبدأ من 3 ريال <i class="fas fa-fire"></i></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- بانر العروض الرئيسي -->
+    <section class="container mx-auto px-4 mt-6">
+        <div class="bg-gradient-to-l from-primary to-blue-600 rounded-2xl h-64 md:h-80 flex items-center justify-center text-white relative overflow-hidden shadow-lg">
+            <div class="text-center z-10 p-4 animate-fade-in-up">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-4">أحدث أجهزة الآيفون وإكسسوارات X-WOLF</h2>
+                <p class="text-lg md:text-xl mb-6 opacity-90">ضمان سنة كاملة على جميع بكجات الحماية الشاملة</p>
+                <button class="bg-secondary text-white px-8 py-3 rounded-full font-bold hover:bg-yellow-600 transition shadow-lg transform hover:scale-105">تسوق العروض الآن</button>
+            </div>
+            <!-- زخرفة خلفية -->
+            <i class="fas fa-mobile-alt absolute -left-10 -bottom-10 text-9xl opacity-10 rotate-12"></i>
+        </div>
+    </section>
+
+    <!-- قسم المنتجات -->
+    <section class="container mx-auto px-4 mt-12 mb-12">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-extrabold text-gray-800 border-r-4 border-primary pr-3">أحدث المنتجات المخفضة</h3>
+            <a href="#" class="text-primary text-sm font-bold hover:underline flex items-center gap-1">عرض الكل <i class="fas fa-arrow-left"></i></a>
+        </div>
+
+        <!-- شبكة المنتجات (سيتم تعبئتها بواسطة JavaScript) -->
+        <div id="productsGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+            <!-- المنتجات ستظهر هنا تلقائياً -->
+        </div>
+    </section>
+
+    <!-- قسم العلامات التجارية -->
+    <section class="bg-white py-12 border-t border-gray-100">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-extrabold text-gray-800 border-r-4 border-primary pr-3 mb-6">تصفح حسب العلامة التجارية</h3>
+            <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+                <div class="min-w-[130px] h-20 bg-gray-50 border border-gray-200 rounded-xl flex items-center justify-center font-bold text-gray-600 hover:border-primary hover:text-primary cursor-pointer transition shadow-sm">Apple</div>
+                <div class="min-w-[130px] h-20 bg-gray-50 border border-gray-200 rounded-xl flex items-center justify-center font-bold text-gray-600 hover:border-primary hover:text-primary cursor-pointer transition shadow-sm">Samsung</div>
+                <div class="min-w-[130px] h-20 bg-gray-50 border border-gray-200 rounded-xl flex items-center justify-center font-bold text-gray-600 hover:border-primary hover:text-primary cursor-pointer transition shadow-sm">X-WOLF</div>
+                <div class="min-w-[130px] h-20 bg-gray-50 border border-gray-200 rounded-xl flex items-center justify-center font-bold text-gray-600 hover:border-primary hover:text-primary cursor-pointer transition shadow-sm">Huawei</div>
+                <div class="min-w-[130px] h-20 bg-gray-50 border border-gray-200 rounded-xl flex items-center justify-center font-bold text-gray-600 hover:border-primary hover:text-primary cursor-pointer transition shadow-sm">Xiaomi</div>
+                <div class="min-w-[130px] h-20 bg-gray-50 border border-gray-200 rounded-xl flex items-center justify-center font-bold text-gray-600 hover:border-primary hover:text-primary cursor-pointer transition shadow-sm">UGREEN</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="bg-gray-900 text-gray-300 pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-4 flex items-center gap-2"><i class="fas fa-bolt text-secondary"></i> متجرك</h4>
+                    <p class="text-sm leading-relaxed text-gray-400">وجهتك الأولى لأحدث الأجهزة الذكية وإكسسوارات الحماية الأصلية بضمان معتمد وخدمة عملاء متميزة على مدار الساعة.</p>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-4">روابط هامة</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">سياسة الاستبدال والاسترجاع</a></li>
+                        <li><a href="#" class="hover:text-white transition">شروط والأحكام</a></li>
+                        <li><a href="#" class="hover:text-white transition">سياسة الخصوصية</a></li>
+                        <li><a href="#" class="hover:text-white transition">تتبع طلبك</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-4">تواصل معنا</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center gap-2"><i class="fab fa-whatsapp text-green-500 text-lg"></i> 966500000000+</li>
+                        <li class="flex items-center gap-2"><i class="far fa-envelope text-primary text-lg"></i> support@mystore.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-4">طرق الدفع الآمنة</h4>
+                    <div class="flex gap-4 text-3xl text-gray-400">
+                        <i class="fab fa-cc-visa hover:text-white transition"></i>
+                        <i class="fab fa-cc-mastercard hover:text-white transition"></i>
+                        <i class="fab fa-cc-apple-pay hover:text-white transition"></i>
+                        <i class="fas fa-money-bill-wave hover:text-white transition" title="مدى"></i>
+                    </div>
+                    <p class="text-xs mt-4 text-gray-500 flex items-center gap-1"><i class="fas fa-lock"></i> جميع المعاملات مشفرة ومحمية 100%</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
+                © 2024 جميع الحقوق محفوظة لـ متجر التقنية المتكامل
+            </div>
+        </div>
+    </footer>
+
+    <!-- إشعار الإضافة للسلة (Toast) -->
+    <div id="toast" class="fixed bottom-5 left-5 bg-green-600 text-white px-6 py-3 rounded-lg shadow-xl transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center gap-3">
+        <i class="fas fa-check-circle text-xl"></i>
+        <span>تمت إضافة المنتج إلى السلة بنجاح!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
