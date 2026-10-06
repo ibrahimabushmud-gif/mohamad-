@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل المنتج | ALATAWI STORE</title>
+    
+    <!-- خطوط عربية احترافية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملف التنسيقات -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header (نفس الهيدر السابق) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none;">
+                        <h1>ALATAWI <span>STORE</span></h1>
+                    </a>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="ابحث عن جوالات، إكسسوارات...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="header-icons">
+                    <a href="#" class="icon-link"><i class="far fa-user"></i></a>
+                    <a href="#" class="icon-link"><i class="far fa-heart"></i></a>
+                    <a href="#" class="icon-link cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="#">الأجهزة الذكية</a></li>
+                <li><span id="product-category">جوالات</span></li>
+                <li class="active"><span id="breadcrumb-product-name">اسم المنتج</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Product Details Section -->
+    <section class="product-details-section">
+        <div class="container">
+            <div class="product-details-grid">
+                
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img id="main-product-image" src="" alt="صورة المنتج الرئيسية">
+                    </div>
+                    <div class="thumbnail-images" id="thumbnail-container">
+                        <!-- سيتم إضافة الصور المصغرة هنا -->
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info-section">
+                    <div class="product-brand-badge" id="product-brand">Apple</div>
+                    <h1 class="product-title" id="product-title">اسم المنتج هنا</h1>
+                    
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="rating-text">(4.5) 128 تقييم</span>
+                    </div>
+
+                    <div class="product-price-box">
+                        <span class="current-price" id="product-price">0 ريال</span>
+                        <span class="old-price" id="product-old-price">0 ريال</span>
+                        <span class="discount-badge" id="product-discount">خصم 0%</span>
+                    </div>
+
+                    <div class="product-short-desc">
+                        <p id="product-short-desc">وصف مختصر للمنتج سيظهر هنا.</p>
+                    </div>
+
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <button class="qty-btn" onclick="changeQty(-1)">-</button>
+                            <input type="number" id="product-qty" value="1" min="1" max="10">
+                            <button class="qty-btn" onclick="changeQty(1)">+</button>
+                        </div>
+                        
+                        <button class="btn-add-cart" onclick="addToCartFromDetails()">
+                            <i class="fas fa-shopping-cart"></i> أضف إلى السلة
+                        </button>
+                        
+                        <button class="btn-wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-truck"></i>
+                            <span>شحن مجاني لجميع مناطق المملكة</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>ضمان رسمي لمدة سنة</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-undo"></i>
+                            <span>إمكانية الإرجاع خلال 14 يوم</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="product-tabs-section">
+                <div class="tabs-header">
+                    <button class="tab-btn active" onclick="openTab(event, 'description')">الوصف</button>
+                    <button class="tab-btn" onclick="openTab(event, 'specifications')">المواصفات</button>
+                    <button class="tab-btn" onclick="openTab(event, 'reviews')">التقييمات (128)</button>
+                </div>
+
+                <div id="description" class="tab-content active">
+                    <h3>وصف المنتج</h3>
+                    <p id="product-full-desc">الوصف الكامل للمنتج سيظهر هنا. هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة.</p>
+                </div>
+
+                <div id="specifications" class="tab-content">
+                    <h3>المواصفات التقنية</h3>
+                    <table class="specs-table">
+                        <tr>
+                            <td>العلامة التجارية</td>
+                            <td id="spec-brand">Apple</td>
+                        </tr>
+                        <tr>
+                            <td>الموديل</td>
+                            <td id="spec-model">iPhone 15 Pro Max</td>
+                        </tr>
+                        <tr>
+                            <td>اللون</td>
+                            <td>تيتانيوم طبيعي</td>
+                        </tr>
+                        <tr>
+                            <td>السعة التخزينية</td>
+                            <td>256 GB</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="reviews" class="tab-content">
+                    <h3>تقييمات العملاء</h3>
+                    <div class="review-item">
+                        <div class="review-header">
+                            <strong>أحمد محمد</strong>
+                            <div class="stars-small">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p>منتج ممتاز وجودة عالية جداً، أنصح به بشدة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="related-products-section">
+                <h2 class="section-title">منتجات مشابهة</h2>
+                <div class="products-grid" id="related-products-container">
+                    <!-- سيتم تحميل المنتجات المشابهة هنا -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>ALATAWI STORE</h3>
+                    <p>متجرك الأول للإلكترونيات في المملكة العربية السعودية.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#">من نحن</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">الشروط والأحكام</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>تواصل معنا</h3>
+                    <p><i class="fas fa-phone"></i> 920000000</p>
+                    <p><i class="fas fa-envelope"></i> info@alatawi.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة © 2026 ALATAWI STORE</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملف البرمجة -->
+    <script src="script.js"></script>
+    <script src="product.js"></script>
+</body>
+</html>
