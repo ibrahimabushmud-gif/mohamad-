@@ -42,6 +42,7 @@ function displayProducts() {
         const discount = Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100);
         
         const productHTML = `
+            <a href="product.html?id=${product.id}" style="text-decoration: none; color: inherit;">
             <div class="product-card">
                 <div class="product-image">
                     <img src="${product.image}" alt="${product.name}">
@@ -53,11 +54,12 @@ function displayProducts() {
                         <span class="current-price">${product.price} ريال</span>
                         <span class="old-price">${product.oldPrice} ريال</span>
                     </div>
-                    <button class="add-to-cart" onclick="addToCart(${product.id})">
+                    <button class="add-to-cart" onclick="event.preventDefault(); addToCart(${product.id})">
                         <i class="fas fa-shopping-cart"></i> أضف للسلة
                     </button>
                 </div>
             </div>
+            </a>
         `;
         
         container.innerHTML += productHTML;
